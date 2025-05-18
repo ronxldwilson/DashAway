@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "DashAway",
+  "version": "1.0",
+  "description": "Removes all em dashes (—) from ChatGPT, Perplexity, and other AI tools.",
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://chat.openai.com/*",
+        "*://chatgpt.com/*",
+        "*://perplexity.ai/*",
+        "*://bard.google.com/*",
+        "*://claude.ai/*",
+        "*://gemini.google.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_title": "DashAway"
+  }
+}
